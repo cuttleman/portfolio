@@ -8,11 +8,21 @@
   align-items: center;
   justify-content: center;
   gap: 60px;
+  position: relative;
 
   @include mixins.mobile {
     width: 90%;
     height: calc(100.1vh - var(--nav-size));
     gap: 40px;
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
   }
 
   img {
@@ -26,6 +36,8 @@
   }
 
   .contact {
+    position: static;
+    z-index: 1;
     width: 100%;
     display: flex;
     flex-direction: column;

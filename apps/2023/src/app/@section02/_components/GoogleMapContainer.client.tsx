@@ -56,7 +56,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab, distance }: IProps) =
   }, []);
 
   function* zoomGenerateSequence(type: "increase" | "decrease") {
-    let limit = Math.max(Math.floor(distance / 3.5), 4);
+    let limit = Math.max(Math.floor(distance / 3.5), 4.5);
     if (isMobile) limit += 1;
     const increment = 0.1;
 

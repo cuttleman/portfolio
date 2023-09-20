@@ -2,19 +2,38 @@
 
 import "./_styles/page.scss";
 
+import { create as confettiCreate } from "canvas-confetti";
 import { useInView } from "framer-motion";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { BiLogoGmail, BiLogoGithub, BiLogoLinkedinSquare } from "react-icons/bi";
 
 const Section04 = () => {
   const ref = useRef(null);
-  const _isInView = useInView(ref, { once: true });
+  const canvasRef = useRef<HTMLCanvasElement>(null as unknown as HTMLCanvasElement);
+  const _isInView = useInView(ref, { once: true, amount: 0.6 });
+
+  useEffect(() => {
+    const myConfetti = confettiCreate(canvasRef.current, { resize: true });
+
+    void myConfetti({
+      particleCount: 100,
+      startVelocity: 30,
+      spread: 360,
+      origin: { x: 0.5, y: 0 },
+    });
+
+    return () => {
+      myConfetti?.reset();
+    };
+  }, [_isInView]);
 
   return (
     <div className="section-container" id="contact" ref={ref}>
       <div className="section">
         <div className="section04">
+          <canvas ref={canvasRef} />
+
           {/* eslint-disable-next-line @next/next/no-img-element -- . */}
           <img alt="armature" src="/image/armature_bye.png" />
 
