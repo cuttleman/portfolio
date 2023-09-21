@@ -4,7 +4,7 @@ import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei
 import { Canvas, type Vector3 } from "@react-three/fiber";
 import { type PropsWithChildren, Suspense } from "react";
 
-import Loader from "@common/components/Loader";
+import Loader from "@common/components/Loader.client";
 
 interface IProps {
   cameraNear?: number;
