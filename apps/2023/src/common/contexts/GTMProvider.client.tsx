@@ -30,7 +30,7 @@ const GTMProvider = ({ children }) => {
     TagManager.dataLayer({
       dataLayer: {
         event: "usr_flying",
-        toFlying: to,
+        to_flying: to,
       },
     });
   };
