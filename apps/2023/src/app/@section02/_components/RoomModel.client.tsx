@@ -42,9 +42,9 @@ const RoomModel = ({ isInit, isFlight, distance, onArrived }: IProps) => {
         ?.setLoop(LoopOnce, 1)
         .setDuration(4)
         .play()
-        .onFinish(() => {
-          clip.stop();
-          if (idx === landClips.length - 1) onArrived();
+        .onFinish((_this) => {
+          _this.stop();
+          if (idx === 0) onArrived();
         });
     });
   };
@@ -61,8 +61,8 @@ const RoomModel = ({ isInit, isFlight, distance, onArrived }: IProps) => {
       clip
         ?.setLoop(LoopOnce, 1)
         .play()
-        .onFinish(() => {
-          clip.stop();
+        .onFinish((_this) => {
+          _this.stop();
           flyingClip?.play();
         });
     });
@@ -73,8 +73,8 @@ const RoomModel = ({ isInit, isFlight, distance, onArrived }: IProps) => {
       actions.armature_falling
         ?.setLoop(LoopOnce, 1)
         .play()
-        .onFinish(() => {
-          actions.armature_falling?.stop();
+        .onFinish((_this) => {
+          _this.stop();
           actions.armature_typing?.setDuration(1.5).play();
         });
     }, 0);
@@ -94,7 +94,7 @@ const RoomModel = ({ isInit, isFlight, distance, onArrived }: IProps) => {
   }, [isInit]);
 
   useEffect(() => {
-    if (isFlight) onFlight().catch(() => {});
+    if (isFlight) void onFlight();
   }, [isFlight]);
 
   return <primitive object={scene} scale={isMobile ? 0.7 : 0.8} />;

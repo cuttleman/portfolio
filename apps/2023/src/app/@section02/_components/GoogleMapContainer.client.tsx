@@ -9,8 +9,9 @@ import {
   googleMapDarkThemeConfig,
   googleMapLightThemeConfig,
 } from "@common/constants";
-import { ETheme, useTheme } from "@common/contexts/ThemeProvider";
+import { useTheme } from "@common/contexts/ThemeProvider.client";
 import useMediaQuery from "@common/hooks/useMediaQuery";
+import { ETheme } from "@common/types/enum";
 
 interface IProps {
   toHome: boolean;
@@ -93,10 +94,13 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab, distance }: IProps) =
   };
 
   useEffect(() => {
-    if (toHome) onFlight(companiesCenterCoordinate["nomad-coders"]).catch(() => {});
-    if (toItam) onFlight(companiesCenterCoordinate.itamgames).catch(() => {});
-    if (toMW) onFlight(companiesCenterCoordinate["metaverse-world"]).catch(() => {});
-    if (toLab) onFlight(companiesCenterCoordinate.quest3).catch(() => {});
+    let param: CompaniesCoordinate | null = null;
+    if (toHome) param = companiesCenterCoordinate["nomad-coders"];
+    if (toItam) param = companiesCenterCoordinate.itamgames;
+    if (toMW) param = companiesCenterCoordinate["metaverse-world"];
+    if (toLab) param = companiesCenterCoordinate.quest3;
+
+    if (param) void onFlight(param);
   }, [toHome, toItam, toMW, toLab]);
 
   return (

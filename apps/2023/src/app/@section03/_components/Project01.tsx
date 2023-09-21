@@ -1,5 +1,3 @@
-"use client";
-
 import Content from "./Content";
 
 const Project01 = () => {

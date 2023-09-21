@@ -1,12 +1,10 @@
 import "@common/styles/globals.scss";
 
 import { Roboto } from "next/font/google";
-import Script from "next/script";
 
 import NavBar from "@common/components/NavBar.client";
-import { GTM_ID } from "@common/constants";
-import GTMProvider from "@common/contexts/GTMProvider";
-import ThemeProvider from "@common/contexts/ThemeProvider";
+import GTMProvider from "@common/contexts/GTMProvider.client";
+import ThemeProvider from "@common/contexts/ThemeProvider.client";
 
 import type { Metadata } from "next";
 
@@ -27,25 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props) {
   return (
     <html className={roboto.className} lang="ko">
-      {/* <!-- Google Tag Manager --> */}
-      <Script id="google-tag-manager">{`
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${GTM_ID}'); 
-      `}</Script>
       <body className="dark">
-        {/* <!-- Google Tag Manager (noscript) --> */}
-        <noscript>
-          <iframe
-            height="0"
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            style={{ display: "none", visibility: "hidden" }}
-            title="google-tag-manager"
-            width="0"
-          />
-        </noscript>
         <GTMProvider>
           <ThemeProvider>
             <NavBar />

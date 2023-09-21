@@ -10,15 +10,14 @@ import { MdContactSupport } from "react-icons/md";
 import { RiMapPinRangeFill } from "react-icons/ri";
 import { Tooltip } from "react-tooltip";
 
-import { useGTM } from "@common/contexts/GTMProvider";
-import { ETheme, useTheme } from "@common/contexts/ThemeProvider";
+import { useTheme } from "@common/contexts/ThemeProvider.client";
+import { ETheme } from "@common/types/enum";
 
 import logoIcon from "../../app/icon.png";
 
 const NavBar = () => {
   const [activeTab, setActiveTab] = useState("");
-  const { theme, changeTheme } = useTheme();
-  const { gtmTheme } = useGTM();
+  const { theme, onToggleTheme } = useTheme();
 
   const toNav = (id: string) => {
     const mainEl = document.querySelector("main");
@@ -58,30 +57,7 @@ const NavBar = () => {
     return observer;
   };
 
-  const onToggleTheme = () => {
-    let _theme = localStorage.getItem("theme") as ETheme;
-
-    if (_theme === ETheme.DARK) _theme = ETheme.LIGHT;
-    else if (_theme === ETheme.LIGHT) _theme = ETheme.DARK;
-
-    localStorage.setItem("theme", _theme);
-    document.body.setAttribute("class", _theme);
-    changeTheme(_theme);
-    gtmTheme(_theme);
-  };
-
-  const initTheme = () => {
-    let _theme = (localStorage.getItem("theme") || ETheme.DARK) as ETheme;
-
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) _theme = ETheme.LIGHT;
-    localStorage.setItem("theme", _theme);
-
-    document.body.setAttribute("class", _theme);
-    changeTheme(_theme);
-  };
-
   useEffect(() => {
-    initTheme();
     const observer = initObserver();
 
     return () => {

@@ -11,9 +11,11 @@ import { BiLogoGmail, BiLogoGithub, BiLogoLinkedinSquare } from "react-icons/bi"
 const Section04 = () => {
   const ref = useRef(null);
   const canvasRef = useRef<HTMLCanvasElement>(null as unknown as HTMLCanvasElement);
-  const _isInView = useInView(ref, { once: true, amount: 0.6 });
+  const isInView = useInView(ref, { once: true, amount: 0.6 });
 
   useEffect(() => {
+    if (!isInView) return;
+
     const myConfetti = confettiCreate(canvasRef.current, { resize: true });
 
     void myConfetti({
@@ -26,7 +28,7 @@ const Section04 = () => {
     return () => {
       myConfetti?.reset();
     };
-  }, [_isInView]);
+  }, [isInView]);
 
   return (
     <div className="section-container" id="contact" ref={ref}>

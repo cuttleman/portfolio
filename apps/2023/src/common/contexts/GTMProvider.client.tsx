@@ -5,10 +5,11 @@ import TagManager from "react-gtm-module";
 
 import { GTM_ID } from "@common/constants";
 
-import type { ETheme } from "./ThemeProvider";
+import type { ELocation, ETheme } from "@common/types/enum";
 
 interface IContext {
   gtmTheme: (_theme: ETheme) => void;
+  gtmFlying: (_to: ELocation) => void;
 }
 
 const Context = createContext<IContext>({} as IContext);
@@ -25,12 +26,21 @@ const GTMProvider = ({ children }) => {
     });
   };
 
+  const gtmFlying = (to: ELocation) => {
+    TagManager.dataLayer({
+      dataLayer: {
+        event: "usr_flying",
+        toFlying: to,
+      },
+    });
+  };
+
   useEffect(() => {
     if (process.env.ENV === "development") return;
     TagManager.initialize({ gtmId: GTM_ID });
   }, []);
 
-  return <Context.Provider value={{ gtmTheme }}>{children}</Context.Provider>;
+  return <Context.Provider value={{ gtmTheme, gtmFlying }}>{children}</Context.Provider>;
 };
 
 export default GTMProvider;

@@ -9,17 +9,12 @@ import { Tooltip } from "react-tooltip";
 
 import ModelContainer from "@common/components/ModelContainer.client";
 import { careerHistory, companiesCoordinate } from "@common/constants";
+import { useGTM } from "@common/contexts/GTMProvider.client";
+import { ELocation } from "@common/types/enum";
 import { haversine } from "@common/utils/distance";
 
 import GoogleMapContainer from "./_components/GoogleMapContainer.client";
 import RoomModel from "./_components/RoomModel.client";
-
-enum ELocation {
-  NOMAD_CODERS = "nomad-coders",
-  ITAMGAMES = "itamgames",
-  METAVERSE_WORLD = "metaverse-world",
-  QUEST3 = "quest3",
-}
 
 const baseDestination = { toHome: false, toItam: false, toLab: false, toMW: false };
 
@@ -27,6 +22,7 @@ const Section02 = () => {
   const ref = useRef(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const isInView = useInView(ref, { once: true });
+  const { gtmFlying } = useGTM();
   const [destination, setDestination] = useState(baseDestination);
   const [location, setLocation] = useState<ELocation>(ELocation.NOMAD_CODERS);
   const [isFlight, setIsFlight] = useState(false);
@@ -50,6 +46,7 @@ const Section02 = () => {
 
     setIsFlight(true);
     setDistance(distanceKM);
+    gtmFlying(tooltipId);
 
     switch (tooltipId) {
       case ELocation.NOMAD_CODERS:
@@ -59,7 +56,6 @@ const Section02 = () => {
       case ELocation.ITAMGAMES:
         setDestination({ ...baseDestination, toItam: true });
         setLocation(ELocation.ITAMGAMES);
-        setIsFlight(true);
         break;
       case ELocation.METAVERSE_WORLD:
         setDestination({ ...baseDestination, toMW: true });

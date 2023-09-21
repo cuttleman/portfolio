@@ -1,5 +1,3 @@
-"use client";
-
 import "./_styles/page.scss";
 
 import ModelContainer from "@common/components/ModelContainer.client";
