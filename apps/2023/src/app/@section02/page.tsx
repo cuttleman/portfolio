@@ -24,10 +24,10 @@ const Section02 = () => {
   const isInView = useInView(ref, { once: true });
   const { gtmFlying } = useGTM();
   const [destination, setDestination] = useState(baseDestination);
-  const [location, setLocation] = useState<ELocation>(ELocation.NOMAD_CODERS);
+  const [location, setLocation] = useState<ELocation>(ELocation.QUEST3);
   const [isFlight, setIsFlight] = useState(false);
   const [distance, setDistance] = useState(0);
-  const [workHistoryTxt, setWorkHistoryTxt] = useState(careerHistory[ELocation.NOMAD_CODERS]);
+  const [workHistoryTxt, setWorkHistoryTxt] = useState(careerHistory[ELocation.QUEST3]);
 
   const flightTrigger = (e: SyntheticEvent<HTMLButtonElement>) => {
     const { tooltipId } = (e.target as HTMLButtonElement).dataset as { tooltipId: ELocation };
@@ -75,7 +75,7 @@ const Section02 = () => {
   };
 
   const balloonScrollReset = () => {
-    textRef.current?.scrollTo({ top: 0, behavior: "instant" });
+    textRef.current?.scrollTo({ top: 0 });
   };
 
   const onArrived = () => {
@@ -110,25 +110,15 @@ const Section02 = () => {
 
           <div className="career-btns">
             <button
-              className={location === ELocation.NOMAD_CODERS ? "button--active" : ""}
-              data-tooltip-content="flight to home"
-              data-tooltip-id={ELocation.NOMAD_CODERS}
+              className={location === ELocation.QUEST3 ? "button--active" : ""}
+              data-tooltip-content="flight quest3"
+              data-tooltip-id={ELocation.QUEST3}
               onClick={flightTrigger}
               type="button"
             >
-              1
+              Quest3
             </button>
-            <Tooltip id={ELocation.NOMAD_CODERS} />
-            <button
-              className={location === ELocation.ITAMGAMES ? "button--active" : ""}
-              data-tooltip-content="flight to itamgames"
-              data-tooltip-id={ELocation.ITAMGAMES}
-              onClick={flightTrigger}
-              type="button"
-            >
-              2
-            </button>
-            <Tooltip id={ELocation.ITAMGAMES} />
+            <Tooltip id={ELocation.QUEST3} />
             <button
               className={location === ELocation.METAVERSE_WORLD ? "button--active" : ""}
               data-tooltip-content="flight to metaverse world"
@@ -136,19 +126,29 @@ const Section02 = () => {
               onClick={flightTrigger}
               type="button"
             >
-              3
+              {"Metaverse\nWorld"}
             </button>
             <Tooltip id={ELocation.METAVERSE_WORLD} />
             <button
-              className={location === ELocation.QUEST3 ? "button--active" : ""}
-              data-tooltip-content="flight quest3"
-              data-tooltip-id={ELocation.QUEST3}
+              className={location === ELocation.ITAMGAMES ? "button--active" : ""}
+              data-tooltip-content="flight to itamgames"
+              data-tooltip-id={ELocation.ITAMGAMES}
               onClick={flightTrigger}
               type="button"
             >
-              4
+              Itamgames
             </button>
-            <Tooltip id={ELocation.QUEST3} />
+            <Tooltip id={ELocation.ITAMGAMES} />
+            <button
+              className={location === ELocation.NOMAD_CODERS ? "button--active" : ""}
+              data-tooltip-content="flight to home"
+              data-tooltip-id={ELocation.NOMAD_CODERS}
+              onClick={flightTrigger}
+              type="button"
+            >
+              {"Nomad\nCoders"}
+            </button>
+            <Tooltip id={ELocation.NOMAD_CODERS} />
           </div>
         </div>
       </div>

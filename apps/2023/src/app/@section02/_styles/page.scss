@@ -91,30 +91,50 @@
     top: 15px;
     left: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     filter: drop-shadow(0 0 3px #a8a8a8);
+
+    @include mixins.mobile {
+      width: fit-content;
+      flex-direction: row;
+      top: 10px;
+      left: 10px;
+    }
 
     &::before {
       position: absolute;
       z-index: -1;
       content: "";
-      width: 100%;
-      height: 3px;
+      width: 3px;
+      height: 100%;
       background-color: var(--border-color);
+
+      @include mixins.mobile {
+        width: 100%;
+        height: 3px;
+      }
     }
 
     button {
-      @include mixins.square-box(30px);
       @include mixins.no-highlight-tap;
 
       cursor: pointer;
+      width: fit-content;
+      height: fit-content;
       outline: none;
-      border-radius: 50%;
+      border-radius: 5px;
       border: 2px solid var(--border-color);
       font-weight: 700;
       color: var(--font-color);
       background-color: var(--card-bg);
-      padding: 0;
+      padding: 3px 5px;
+      white-space: nowrap;
+
+      @include mixins.mobile {
+        padding: 2px 4px;
+        white-space: pre;
+      }
 
       &.button--active {
         color: var(--card-bg);
@@ -126,7 +146,12 @@
       }
 
       &:not(:last-of-type) {
-        margin-right: 20px;
+        margin-bottom: 20px;
+
+        @include mixins.mobile {
+          margin-bottom: 0;
+          margin-right: 10px;
+        }
       }
 
       &:disabled {

@@ -5,35 +5,40 @@ const Project01 = () => {
     <div className="section-container" id="project1">
       <div className="section">
         <div className="section03">
-          {/* Bridge */}
+          {/* Mad Matic */}
           <Content
-            description="블록체인 네트워크간 자사 거버넌스 토큰을 교환해주는 브릿지 서비스 리뉴얼."
-            mainImage="/image/itamgames1.webp"
+            description="네이티브 토큰을 보상으로 주는 일일 추첨 이벤트 페이지 프론트 개발."
+            mainImage="/image/quest3_1.webp"
             scopes={[
               "UI 퍼블리싱",
-              "기존 브릿지 기능 마이그레이션 및 리펙토링",
-              "대기상태인 교환이력들 Infinity scroll에서 Pagination 적용된 리스트로 개선",
+              "티켓 발급, 추첨결과에 따른 프론트 기능 개발",
+              "특정시간에 추첨되는 시스템 개발",
             ]}
             specs={[
-              "Library: react@16",
-              "State Management: contextAPI",
-              "Style: sass, styled-components",
-              "CI/CD: github-actions, AWS CodePipeline",
+              "Backend: nodejs",
+              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI",
+              "Style: emotion",
+              "CI/CD: github-actions, vercel",
             ]}
-            title="Itamgames: Token Bridge"
+            title="Quest3: Mad Matic"
           />
 
-          {/* Staking */}
+          {/* Daily Check-in */}
           <Content
-            description="게임 아이템을 예치하여 토큰을 이자로 얻는 스테이킹 프론트 개발."
-            mainImage="/image/itamgames2.webp"
-            scopes={["UI 퍼블리싱", "블록체인과 rpc 통신하여 예금/출금기능 구현"]}
-            specs={[
-              "Library: react@16",
-              "State Management: contextAPI",
-              "Style: styled-components",
+            description="게임내 특정 활동을 통한 일일 미션 이벤트 페이지 개발."
+            mainImage="/image/quest3_2.webp"
+            scopes={[
+              "UI 퍼블리싱 및 프론트 기능 개발",
+              "DB 스키마 및 rest api 구현",
+              "디자이너와 의견조율을 통해 디자인 개선",
             ]}
-            title="Itamgames: Staking Pool"
+            specs={[
+              "Backend: koa.js, dynamodb",
+              "Frontend: next@13(pages router), react@17, react-query, contextAPI, chakraUI",
+              "Style: emotion",
+              "CI/CD: github-actions, vercel",
+            ]}
+            title="Quest3: Daily Check-in"
           />
         </div>
       </div>

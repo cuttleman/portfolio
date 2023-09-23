@@ -37,7 +37,7 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab, distance }: IProps) =
     []
   );
   const [coordinate, setCoordinate] = useState<CompaniesCoordinate>(
-    companiesCenterCoordinate["nomad-coders"]
+    companiesCenterCoordinate.quest3
   );
   const [zoom, setZoom] = useState(baseZoom);
   const { theme } = useTheme();
@@ -95,10 +95,10 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab, distance }: IProps) =
 
   useEffect(() => {
     let param: CompaniesCoordinate | null = null;
-    if (toHome) param = companiesCenterCoordinate["nomad-coders"];
-    if (toItam) param = companiesCenterCoordinate.itamgames;
-    if (toMW) param = companiesCenterCoordinate["metaverse-world"];
     if (toLab) param = companiesCenterCoordinate.quest3;
+    if (toMW) param = companiesCenterCoordinate["metaverse-world"];
+    if (toItam) param = companiesCenterCoordinate.itamgames;
+    if (toHome) param = companiesCenterCoordinate["nomad-coders"];
 
     if (param) void onFlight(param);
   }, [toHome, toItam, toMW, toLab]);
