@@ -14,6 +14,13 @@ export const sendAction = async (data: IFormData) => {
   if (!subject || !email || !message) return;
   if (message.includes("<script") || message.includes("<iframe")) return;
 
+  console.log(
+    "process.env.NODEMAILER_USER_EMAIL: ",
+    process.env.NODEMAILER_USER_EMAIL,
+    ", process.env.NODEMAILER_USER_PASSWORD: ",
+    process.env.NODEMAILER_USER_PASSWORD
+  );
+
   const transporter = nodemailer.createTransport(
     {
       service: "gmail",
