@@ -36,8 +36,9 @@ const GTMProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (process.env.ENV === "development") return;
-    TagManager.initialize({ gtmId: GTM_ID });
+    if (process.env.ENV === "production") {
+      TagManager.initialize({ gtmId: GTM_ID });
+    }
   }, []);
 
   return <Context.Provider value={{ gtmTheme, gtmFlying }}>{children}</Context.Provider>;
