@@ -3,6 +3,8 @@
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 
+import { useGTM } from "@common/contexts/GTMProvider.client";
+
 import { type IFormData, sendAction } from "../_utils/sendAction";
 
 interface IProps {
@@ -11,6 +13,8 @@ interface IProps {
 
 const MailForm = ({ closeMailForm }: IProps) => {
   const [isPending, startTransition] = useTransition();
+  const { gtmMail } = useGTM();
+
   const {
     register,
     handleSubmit,
@@ -23,6 +27,7 @@ const MailForm = ({ closeMailForm }: IProps) => {
       sendAction(data)
         .then((success) => {
           if (success) {
+            gtmMail(data.email);
             reset();
             closeMailForm();
           }

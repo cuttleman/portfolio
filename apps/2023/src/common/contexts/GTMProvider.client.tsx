@@ -10,6 +10,7 @@ import type { ELocation, ETheme } from "@common/types/enum";
 interface IContext {
   gtmTheme: (_theme: ETheme) => void;
   gtmFlying: (_to: ELocation) => void;
+  gtmMail: (_from: string) => void;
 }
 
 const Context = createContext<IContext>({} as IContext);
@@ -35,13 +36,22 @@ const GTMProvider = ({ children }) => {
     });
   };
 
+  const gtmMail = (from: string) => {
+    TagManager.dataLayer({
+      dataLayer: {
+        event: "usr_mail",
+        from_addr: from,
+      },
+    });
+  };
+
   useEffect(() => {
-    if (process.env.ENV === "production") {
+    if (process.env.NEXT_PUBLIC_ENV === "production") {
       TagManager.initialize({ gtmId: GTM_ID });
     }
   }, []);
 
-  return <Context.Provider value={{ gtmTheme, gtmFlying }}>{children}</Context.Provider>;
+  return <Context.Provider value={{ gtmTheme, gtmFlying, gtmMail }}>{children}</Context.Provider>;
 };
 
 export default GTMProvider;
