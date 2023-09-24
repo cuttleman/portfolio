@@ -8,7 +8,13 @@
 
   @include mixins.mobile {
     width: 100%;
-    height: calc(100.1vh - var(--nav-size));
+
+    @supports (height: 100.1dvh) {
+      height: calc(100.1dvh - var(--nav-size));
+    }
+    @supports not (height: 100.1dvh) {
+      height: calc(100.1vh - var(--nav-size));
+    }
   }
 
   .map-container {

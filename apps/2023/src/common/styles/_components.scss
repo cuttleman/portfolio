@@ -9,12 +9,17 @@ main {
   margin-left: var(--nav-size);
 
   @include mixins.mobile {
-    max-height: 100%;
     scroll-snap-type: none;
-    width: 100%;
-    max-height: calc(100vh - var(--nav-size));
     margin-left: 0;
     margin-top: var(--nav-size);
+    width: 100%;
+
+    @supports (max-height: 100dvh) {
+      max-height: calc(100dvh - var(--nav-size));
+    }
+    @supports not (max-height: 100dvh) {
+      max-height: calc(100vh - var(--nav-size));
+    }
   }
 }
 

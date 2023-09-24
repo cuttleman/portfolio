@@ -12,8 +12,14 @@
 
   @include mixins.mobile {
     width: 90%;
-    height: calc(100.1vh - var(--nav-size));
     gap: 40px;
+
+    @supports (height: 100.1dvh) {
+      height: calc(100.1dvh - var(--nav-size));
+    }
+    @supports not (height: 100.1dvh) {
+      height: calc(100.1vh - var(--nav-size));
+    }
   }
 
   canvas {
