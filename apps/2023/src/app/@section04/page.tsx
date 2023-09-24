@@ -3,15 +3,28 @@
 import "./_styles/page.scss";
 
 import { create as confettiCreate } from "canvas-confetti";
+import clsx from "clsx";
 import { useInView } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BiLogoGmail, BiLogoGithub, BiLogoLinkedinSquare } from "react-icons/bi";
+import { MdCancel } from "react-icons/md";
+
+import MailForm from "./_components/MailForm.client";
 
 const Section04 = () => {
   const ref = useRef(null);
   const canvasRef = useRef<HTMLCanvasElement>(null as unknown as HTMLCanvasElement);
   const isInView = useInView(ref, { once: true, amount: 0.6 });
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMailForm = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const closeMailForm = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     if (!isInView) return;
@@ -53,11 +66,17 @@ const Section04 = () => {
                 </Link>
               </li>
               <li>
-                <a href="mailto:silluat11@gmail.com" rel="noreferrer" target="_blank">
+                <button onClick={toggleMailForm} type="button">
                   <BiLogoGmail />
-                </a>
+                </button>
               </li>
             </ul>
+          </div>
+          <div className={clsx("form-container", isOpen && "show")}>
+            <button onClick={toggleMailForm} type="button">
+              <MdCancel />
+            </button>
+            <MailForm closeMailForm={closeMailForm} />
           </div>
         </div>
       </div>

@@ -45,5 +45,7 @@ jobs:
         env:
           NEXT_PUBLIC_GOOGLE_API_KEY: ${{ secrets.PORTFOLIO_GOOGLE_API_KEY }}
           ENV: production
+          NODEMAILER_USER_EMAIL: ${{ secrets.NODEMAILER_USER_EMAIL }}
+          NODEMAILER_USER_PASSWORD: ${{ secrets.NODEMAILER_USER_PASSWORD }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN_PORTFOLIO_ALL }}

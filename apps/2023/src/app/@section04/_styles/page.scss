@@ -59,7 +59,9 @@
       gap: 40px;
 
       li {
-        a {
+        a,
+        button {
+          cursor: pointer;
           padding: 5px;
           color: var(--icon-color);
           transition: color 0.2s;
@@ -78,6 +80,101 @@
               width: 40px;
               height: 40px;
             }
+          }
+        }
+      }
+    }
+  }
+
+  .form-container {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    transform: translateY(100%);
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @include mixins.card(10px, 20px 20px 40px 20px);
+
+    & > button {
+      color: var(--font-color);
+      @include mixins.no-highlight-tap;
+
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    &.show {
+      transform: translateY(0);
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+      box-sizing: border-box;
+
+      label {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+
+        &:not(:first-of-type) {
+          margin-top: 20px;
+        }
+      }
+
+      span {
+        color: var(--red);
+        font-size: 0.8rem;
+        margin-top: 8px;
+      }
+
+      input,
+      textarea {
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 5px !important;
+        box-sizing: border-box;
+
+        &:disabled {
+          background-color: var(--loader-color);
+        }
+      }
+
+      textarea {
+        resize: none;
+        width: 100% !important;
+        height: 80px !important;
+      }
+
+      button {
+        margin-top: 20px;
+        color: var(--font-color);
+        background-color: #9d79b9;
+        padding: 10px 0;
+        border-radius: 7px;
+        transition: background-color 0.2s;
+
+        &:disabled {
+          background-color: var(--loader-color);
+        }
+
+        @include mixins.no-highlight-tap;
+
+        &:not(:disabled) {
+          @include mixins.media-hover {
+            background-color: #b68cd5;
           }
         }
       }

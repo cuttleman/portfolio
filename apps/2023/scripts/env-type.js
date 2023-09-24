@@ -1,5 +1,5 @@
-const { readFile, writeFile } = require("node:fs/promises");
 const difference = require("lodash/difference");
+const { readFile, writeFile } = require("node:fs/promises");
 
 const ERROR_HEAD_MSG = "Error#env-type : ";
 
@@ -14,6 +14,7 @@ const _extractKey = (data) =>
   String(data)
     .split("\n")
     .filter((v) => Boolean(v))
+    .filter((v) => !v.match(/^#/))
     .map((v) => v.split("=")[0].trim());
 
 const _readFile = async (path) => readFile(String(path), { encoding: "utf8" });
