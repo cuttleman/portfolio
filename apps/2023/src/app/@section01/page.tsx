@@ -48,6 +48,18 @@ const Section01 = () => {
           <div className="info">
             <ul>
               <li>
+                <div>Who am I</div>
+                <pre>- 안녕하세요. 웹 프론트엔드 개발자 이준오입니다.</pre>
+                <p>
+                  1. 인터렉티브한 웹사이트에 관심이 많고 볼때 피식 웃음이 나는 작업을 좋아합니다 :)
+                </p>
+                <p>
+                  2. 지금까지 좋은 팀원들과 일을 해왔는데, 새롭게 마음이 맞는 팀원분들을 만나고
+                  싶습니다.
+                </p>
+                <p>2. 초심을 잃지 않는 개발자가 되는 것이 목표입니다.</p>
+              </li>
+              <li>
                 <div>Why Cuttleman?</div>
                 <pre>- cuttlefish + man</pre>
                 <p>
@@ -55,10 +67,6 @@ const Section01 = () => {
                   녹아드는 사람이 되겠습니다.
                 </p>
                 <p>real mean: 유튜브에서 본 갑오징어가 너무 귀여워서 본인의 캐릭터로 만듬.</p>
-              </li>
-              <li>
-                <div>Position</div>
-                <p>Frontend Developer</p>
               </li>
               <li>
                 <div>Hobby</div>
