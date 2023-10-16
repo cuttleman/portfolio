@@ -43,8 +43,8 @@ const RoomModel = ({ isInit, isFlight, distance, onArrived }: IProps) => {
         .setDuration(4)
         .play()
         .onFinish((_this) => {
-          _this.stop();
           if (idx === 0) onArrived();
+          _this.stop();
         });
     });
   };

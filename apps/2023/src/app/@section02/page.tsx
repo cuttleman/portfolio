@@ -16,7 +16,7 @@ import { haversine } from "@common/utils/distance";
 import GoogleMapContainer from "./_components/GoogleMapContainer.client";
 import RoomModel from "./_components/RoomModel.client";
 
-const baseDestination = { toHome: false, toItam: false, toLab: false, toMW: false };
+const baseDestination = { toHome: false, toLab: false, toMW: false };
 
 const Section02 = () => {
   const ref = useRef(null);
@@ -53,10 +53,6 @@ const Section02 = () => {
         setDestination({ ...baseDestination, toHome: true });
         setLocation(ELocation.NOMAD_CODERS);
         break;
-      case ELocation.ITAMGAMES:
-        setDestination({ ...baseDestination, toItam: true });
-        setLocation(ELocation.ITAMGAMES);
-        break;
       case ELocation.METAVERSE_WORLD:
         setDestination({ ...baseDestination, toMW: true });
         setLocation(ELocation.METAVERSE_WORLD);
@@ -91,7 +87,6 @@ const Section02 = () => {
           <GoogleMapContainer
             distance={distance}
             toHome={destination.toHome}
-            toItam={destination.toItam}
             toLab={destination.toLab}
             toMW={destination.toMW}
           />
@@ -129,16 +124,6 @@ const Section02 = () => {
               {"Metaverse\nWorld"}
             </button>
             <Tooltip id={ELocation.METAVERSE_WORLD} />
-            <button
-              className={location === ELocation.ITAMGAMES ? "button--active" : ""}
-              data-tooltip-content="flight to itamgames"
-              data-tooltip-id={ELocation.ITAMGAMES}
-              onClick={flightTrigger}
-              type="button"
-            >
-              Itamgames
-            </button>
-            <Tooltip id={ELocation.ITAMGAMES} />
             <button
               className={location === ELocation.NOMAD_CODERS ? "button--active" : ""}
               data-tooltip-content="flight to home"

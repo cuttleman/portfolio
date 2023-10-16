@@ -15,13 +15,12 @@ import { ETheme } from "@common/types/enum";
 
 interface IProps {
   toHome: boolean;
-  toItam: boolean;
   toMW: boolean;
   toLab: boolean;
   distance: number;
 }
 
-const GoogleMapContainer = ({ toHome, toItam, toMW, toLab, distance }: IProps) => {
+const GoogleMapContainer = ({ toHome, toMW, toLab, distance }: IProps) => {
   const baseZoom = 20;
 
   const { isMobile } = useMediaQuery();
@@ -97,11 +96,10 @@ const GoogleMapContainer = ({ toHome, toItam, toMW, toLab, distance }: IProps) =
     let param: CompaniesCoordinate | null = null;
     if (toLab) param = companiesCenterCoordinate.quest3;
     if (toMW) param = companiesCenterCoordinate["metaverse-world"];
-    if (toItam) param = companiesCenterCoordinate.itamgames;
     if (toHome) param = companiesCenterCoordinate["nomad-coders"];
 
     if (param) void onFlight(param);
-  }, [toHome, toItam, toMW, toLab]);
+  }, [toHome, toMW, toLab]);
 
   return (
     <div className="map-container">

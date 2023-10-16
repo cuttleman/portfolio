@@ -20,7 +20,7 @@ const Project03 = () => {
               "Style: sass, styled-components",
               "CI/CD: github-actions, AWS CodePipeline",
             ]}
-            title="Itamgames: Token Bridge"
+            title="Metaverse World: Token Bridge"
           />
 
           {/* Staking */}
@@ -33,7 +33,7 @@ const Project03 = () => {
               "State Management: contextAPI",
               "Style: styled-components",
             ]}
-            title="Itamgames: Staking Pool"
+            title="Metaverse World: Staking Pool"
           />
         </div>
       </div>

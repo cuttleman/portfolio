@@ -1,11 +1,10 @@
 export const companiesCoordinate = {
   "nomad-coders": { lat: 37.693291, lng: 126.765383 },
-  itamgames: { lat: 37.497303, lng: 127.024486 },
   "metaverse-world": { lat: 37.49938619005661, lng: 127.03382608876949 },
   quest3: { lat: 37.499493264043, lng: 127.02900264553 },
 };
 
-export type CompaniesCoordinate = (typeof companiesCoordinate)["nomad-coders"];
+export type CompaniesCoordinate = (typeof companiesCoordinate)["quest3"];
 
 export const googleMapDarkThemeConfig = {
   styles: [
@@ -129,63 +128,61 @@ export const stats = [
   {
     id: "stat-hp",
     label: "HP",
-    description: "요근래 체력량",
+    description: "체력량",
     value: 850,
     max: 1000,
   },
   {
     id: "stat-str",
     label: "STR",
-    description: "개발할때 사용할 수 있는 근육량",
+    description: "정신근육",
     value: 77,
     max: 100,
   },
   {
     id: "stat-dex",
     label: "DEX",
-    description: "기능구현까지의 민첩성",
+    description: "작업속도",
     value: 64,
     max: 100,
   },
   {
     id: "stat-int",
     label: "INT",
-    description: "좀더 쉽게 살기위한 잔머리",
+    description: "잔머리",
     value: 83,
     max: 100,
   },
   {
     id: "stat-luk",
     label: "LUK",
-    description: "살아온 인생중 운빨량",
+    description: "운빨량",
     value: 45,
     max: 100,
   },
   {
     id: "stat-atk",
     label: "ATK",
-    description: "흉흉한 시대에 살아남기 위한 공격력",
+    description: "살아남기 위한 공격력",
     value: 88,
     max: 100,
   },
   {
     id: "stat-def",
     label: "DEF",
-    description: "험난한 시대에 살아남기 위한 방어력",
+    description: "살아남기 위한 방어력",
     value: 65,
     max: 100,
   },
 ];
 
 export const careerHistory = {
-  "nomad-coders":
-    "Nomad Coders lecture\n\n2019.12 ~ 2021.08\n\n기술 스택\n\n코로나 발생후 약 2년간 알바와 공부를 병행. html + css, reactjs, typescript, nodejs 등을 학습.",
-  itamgames:
-    "Itamgames Corp.\n\n2021.09 ~ 2021.12\n\n게임에 블록체인을 붙이기위한 미들웨어 서비스 제공.\n\n개발 내역\n\n- 네트워크간 토큰을 스왑시키는 브릿지 서비스 프론트 개발\n\n- 스테이킹풀(토큰 및 게임아이템 예치) 서비스 프론트 개발\n\n- 리스트 가상스크롤로 성능 최적화",
-  "metaverse-world":
-    "Metaverse World Corp.\n\n2022.01 ~ 2022.10\n\n블록체인 생태계 개발 및 제공.\n\n개발 내역\n\n- 사전판매페이지, 이벤트페이지, 마이페이지, NFT 상세페이지, 메인페이지, NFT 거래 리스트 페이지 등등\n\n- 자체 웹지갑과 ERC기반 지갑 라이브러리를 같이 사용하기위한 기능 추상화\n\n- 런처프로그램 내 웹뷰간 통신을 위한 규격 개발 및 유지보수\n\n- 홈페이지 리뉴얼 프로젝트 기초작업\n\n- i18n을 사용한 국제화 작업\n\n- monorepo 구성",
   quest3:
-    "Quest3 Corp.\n\n2022.12 ~ 2023.06\n\n블록체인게임 퍼블리싱, 게임 서포트 및 홍보용 홈페이지 제작.\n\n개발 내역\n\n- 이벤트 리스트 페이지 프론트 개발\n\n- 게임 데이터를 연동한 일일미션 페이지 프론트 개발\n\n- 메일 구독 및 메일 발송 어드민 개발\n\n- 룰렛 및 추첨 이벤트 페이지 프론트 개발\n\n- 게임 전적페이지 프론트 개발",
+    "Quest3 Corp. (2022.12 ~ 2023.06)\n\n어드민, 게임연동 일일 이벤트, 추첨형식 이벤트, zealy 서비스와 연동한 미션 완료 자동화 등의 작업을 진행하였습니다.\n\n프로젝트중 백엔드에도 참여한 경험이 http 통신에 대한 생각을 넓히는데 도움이 많이 되었습니다.",
+  "metaverse-world":
+    "Metaverse World Corp. (2021.09 ~ 2022.10)\n\n사전판매, 일일 이벤트, NFT 마켓플레이스, 자사 웹지갑 연동을 위해 라이브러리를 추상화하여 기능 구현, 프론트팀의 멀티레포를 모노레포로 마이그레이션, 국제화 등의 작업을 진행하였습니다.\n\n타 직군의 사람들과 협업, 개발팀 주간회의를 통한 기술 공유 및 동기부여를 경험하였습니다. 또 저년차임에도 신입개발자를 케어하는 임무를 수행함으로써 안티 선임개발자의 자세를 배웠습니다.",
+  "nomad-coders":
+    "Nomad Coders lecture (2019.12 ~ 2021.08)\n\njavascript, typescript, react, react-native, nodejs, graphql, mongodb, postgresql 등을 학습하였고 퍼블리싱, 프론트 프레임워크 기반 웹앱, RN기반 앱 등의 프로젝트를 진행하였습니다.\n\npython 서적을 통한 공부, 국비학원 상담을 거쳐 노마드코더가 개발을 배우는데 가장 효율적이라고 생각하여 수강하게되었습니다. 독학의 기간을 길게 잡은 감이 있었지만 제 수준을 곱씹어볼 수 있었던 시간이었습니다.",
 };
 
 export const GTM_ID = "GTM-TCTRHF2R";
