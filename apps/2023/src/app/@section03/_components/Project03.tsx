@@ -25,15 +25,11 @@ const Project03 = () => {
 
           {/* Staking */}
           <Content
-            description="게임 아이템을 예치하여 토큰을 이자로 얻는 스테이킹 프론트 개발."
-            mainImage="/image/itamgames2.webp"
-            scopes={["UI 퍼블리싱", "블록체인과 rpc 통신하여 예금/출금기능 구현"]}
-            specs={[
-              "Library: react@16",
-              "State Management: contextAPI",
-              "Style: styled-components",
-            ]}
-            title="Metaverse World: Staking Pool"
+            description="책 홍보용 정적 웹사이트 개발. 1차 외주에서 이벤트 기간내 누적 사용자수 50만 달성후 2차 외주 계약."
+            mainImage="/image/outsourcing.webp"
+            scopes={["UI 퍼블리싱", "캐러셀 슬라이드 바닐라코드 개발", "동적 공유이미지", "GA"]}
+            specs={["Frontend: javascript, scss, gulp, pug", "Backend: firebase"]}
+            title="Outsourcing: 관계유형테스트 / 방구석 골든벨"
           />
         </div>
       </div>
