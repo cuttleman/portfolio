@@ -77,7 +77,7 @@ const Section01 = () => {
               <li>
                 <div>Career</div>
                 <p>2022.12 ~ 2023.06 : Quest3 Corp.</p>
-                <p>2021.09 ~ 2022.10 : Metaverse World Corp.</p>
+                <p>2021.09 ~ 2022.11 : Metaverse World Corp.</p>
                 <p>2019.12 ~ 2021.08 : Nomad Coders lecture</p>
               </li>
             </ul>
